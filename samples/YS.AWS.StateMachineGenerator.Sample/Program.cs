@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using YS.AWS.StateMachine.Abstractions;
+﻿using YS.AWS.StateMachine.Abstractions;
 using YS.AWS.StateMachine.Abstractions.States;
 using YS.AWS.StateMachine.Abstractions.Values;
 using Parallel = YS.AWS.StateMachine.Abstractions.States.Parallel;

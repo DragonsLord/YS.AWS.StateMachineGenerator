@@ -4,6 +4,7 @@ using YS.AWS.StateMachine.Abstractions.States;
 
 namespace YS.AWS.StateMachine.Abstractions;
 
+//https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-state-machine-structure.html
 public class StateMachine
 {
     public string Comment { get; set; }
