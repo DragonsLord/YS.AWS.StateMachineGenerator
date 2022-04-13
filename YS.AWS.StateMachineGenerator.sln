@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YS.AWS.StateMachine.Abstractions", "YS.AWS.StateMachineGenerator\YS.AWS.StateMachine.Abstractions.csproj", "{28DAD279-4EA8-4613-A670-0AA0D64C915E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{945B313C-9F16-402F-88C3-04928D14ACBB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YS.AWS.StateMachineGenerator.Sample", "samples\YS.AWS.StateMachineGenerator.Sample\YS.AWS.StateMachineGenerator.Sample.csproj", "{1B01A7BE-34FA-4442-A185-D032CCCC9BBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28DAD279-4EA8-4613-A670-0AA0D64C915E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28DAD279-4EA8-4613-A670-0AA0D64C915E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28DAD279-4EA8-4613-A670-0AA0D64C915E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28DAD279-4EA8-4613-A670-0AA0D64C915E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B01A7BE-34FA-4442-A185-D032CCCC9BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B01A7BE-34FA-4442-A185-D032CCCC9BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B01A7BE-34FA-4442-A185-D032CCCC9BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B01A7BE-34FA-4442-A185-D032CCCC9BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DEF05CF-F3E4-4C1B-B48F-9B449EB0F5E8}
+	EndGlobalSection
+EndGlobal
