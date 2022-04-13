@@ -6,5 +6,5 @@ public class Fail : State
     public override StateType Type => StateType.Fail;
 
     public string Cause { get; set; }
-    public  string Error { get; set; }
+    public string Error { get; set; }
 }
