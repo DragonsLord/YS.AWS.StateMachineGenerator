@@ -25,4 +25,5 @@ var stateMachine = new StateMachine
         }
     }
 };
+var definitionString = stateMachine.ToString();
 ```
