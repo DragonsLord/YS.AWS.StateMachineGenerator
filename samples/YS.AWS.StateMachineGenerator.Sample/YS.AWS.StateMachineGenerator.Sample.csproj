@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\YS.AWS.StateMachine.Abstractions\YS.AWS.StateMachine.Abstractions.csproj" />
-    <ProjectReference Include="..\..\src\YS.AWS.StateMachine.DataContext\YS.AWS.StateMachine.DataContext.csproj" />
   </ItemGroup>
 
 </Project>
