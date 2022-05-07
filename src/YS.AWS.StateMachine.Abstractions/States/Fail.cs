@@ -7,4 +7,10 @@ public class Fail : State
 
     public string Cause { get; set; }
     public string Error { get; set; }
+
+    protected override IEnumerable<(string Key, object Value, bool Pathable)> GetSerializedFields()
+    {
+        yield return (nameof(Cause), Cause, false);
+        yield return (nameof(Error), Error, false); // Maybe pathable
+    }
 }

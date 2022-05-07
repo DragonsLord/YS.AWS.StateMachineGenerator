@@ -5,9 +5,21 @@ namespace YS.AWS.StateMachine.Abstractions.Serialization;
 
 internal static class StateMachineSerializerOptions
 {
-    public static JsonSerializerOptions Default => new JsonSerializerOptions
+    public static JsonSerializerOptions Default
     {
-        WriteIndented = true,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-    };
+        get
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            options.Converters.Add(new JsonPathConverter());
+            options.Converters.Add(new StateJsonConverter());
+            options.Converters.Add(new AnyValueConverter());
+
+            return options;
+        }
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace YS.AWS.StateMachine.Abstractions.States;
+﻿using YS.AWS.StateMachine.Abstractions.Values;
+
+namespace YS.AWS.StateMachine.Abstractions.States;
 
 //https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html#error-handling-examples
 public class Retry
@@ -13,5 +15,5 @@ public class Catch
 {
     public string[] ErrorEquals { get; set; }
     public string Next { get; set; }
-    public string ResultPath { get; set; }
+    public JsonPath ResultPath { get; set; }
 }

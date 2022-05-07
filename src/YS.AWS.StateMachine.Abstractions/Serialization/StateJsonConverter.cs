@@ -14,6 +14,8 @@ internal class StateJsonConverter : JsonConverter<State>
 
     public override void Write(Utf8JsonWriter writer, State value, JsonSerializerOptions options)
     {
-        JsonSerializer.Serialize(writer, value, value.GetType(), StatesJsonContext.Formatted);
+        writer.WriteStartObject();
+        writer.WriteProperties(value.GetSerializedFieldsInfo(), options);
+        writer.WriteEndObject();
     }
 }

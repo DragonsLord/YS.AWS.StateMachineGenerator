@@ -29,7 +29,11 @@ public sealed class AnyValue
 
     public static implicit operator AnyValue(DateTime d) => new AnyValue(d);
 
+    public static implicit operator AnyValue(JsonPath d) => new AnyValue(d);
     public static implicit operator AnyValue(Dictionary<string, AnyValue> d) => new AnyValue(d);
 
     public static AnyValue Create<T>(T value) => new AnyValue(value);
+    public static AnyValue Null() => new AnyValue(null);
+
+    public override string ToString() => Value?.ToString() ?? string.Empty;
 }

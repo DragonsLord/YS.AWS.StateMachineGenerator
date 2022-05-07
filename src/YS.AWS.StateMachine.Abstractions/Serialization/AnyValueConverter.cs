@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Collections;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using YS.AWS.StateMachine.Abstractions.Values;
 
@@ -13,6 +14,22 @@ internal class AnyValueConverter : JsonConverter<AnyValue>
 
     public override void Write(Utf8JsonWriter writer, AnyValue value, JsonSerializerOptions options)
     {
+        if (value.Value is null)
+        {
+            writer.WriteNullValue();
+            return;
+        }
+
+        var props = value.GetProperties();
+
+        if (props.Any())
+        {
+            writer.WriteStartObject();
+            writer.WriteProperties(props, options);
+            writer.WriteEndObject();
+            return;
+        }
+
         JsonSerializer.Serialize(writer, value.Value, value.Value.GetType(), options);
     }
 }

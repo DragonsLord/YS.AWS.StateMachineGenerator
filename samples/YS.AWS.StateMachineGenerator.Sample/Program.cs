@@ -1,8 +1,15 @@
 ﻿using YS.AWS.StateMachine.Abstractions;
 using YS.AWS.StateMachine.Abstractions.States;
 using YS.AWS.StateMachine.Abstractions.Values;
+using YS.AWS.StateMachine.DataContext;
 using Parallel = YS.AWS.StateMachine.Abstractions.States.Parallel;
 using Task = YS.AWS.StateMachine.Abstractions.States.Task;
+
+//dynamic ctx = DataContext.Root;
+
+//DataContext path = ctx.Hello.World;
+
+//Console.WriteLine(path.JsonPath);
 
 var stateMachine = new StateMachine
 {
@@ -12,7 +19,7 @@ var stateMachine = new StateMachine
     {
         ["Hello"] = new Pass
         {
-            Result = "Hello",
+            Result = new JsonPath("$.hello"), //"Hello",
             Next = "Choose"
         },
         ["Choose"] = new Choice
@@ -105,8 +112,8 @@ var stateMachine = new StateMachine
         {
             Result = new Dictionary<string, AnyValue?>
             {
-                ["Text.$"] = "$.Input",
-                ["Null"] = null
+                ["Text"] = new JsonPath("$.Input"),
+                ["Null"] = AnyValue.Null()
             },
             Next = "Wait",
         },
@@ -117,8 +124,10 @@ var stateMachine = new StateMachine
         },
         ["World"] = new Pass
         {
-            Result = AnyValue.Create(new {
-                AnynimousClass = true
+            Result = AnyValue.Create(new
+            {
+                AnynimousClass = true,
+                Path = new JsonPath("$.Path")
             }),
             Next = "Success"
         },
@@ -129,4 +138,9 @@ var stateMachine = new StateMachine
         }
     }
 };
+//var choice = stateMachine.States["Choose"] as Choice;
+//foreach (var field in choice.GetSerializedFieldsInfo())
+//{
+//    Console.WriteLine(field.Key);
+//}
 Console.WriteLine(stateMachine);
