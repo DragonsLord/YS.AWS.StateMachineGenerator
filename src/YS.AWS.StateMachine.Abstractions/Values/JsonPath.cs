@@ -1,6 +1,6 @@
 ﻿namespace YS.AWS.StateMachine.Abstractions.Values;
 
-public class JsonPath 
+public class JsonPath : IIntrisinc
 {
     public string Path { get; }
 
@@ -18,6 +18,8 @@ public class JsonPath
 
         Path = path;
     }
+
+    public override string ToString() => Path;
 
     public static implicit operator JsonPath(string path) => new JsonPath(path);
     public static implicit operator string(JsonPath path) => path.Path;

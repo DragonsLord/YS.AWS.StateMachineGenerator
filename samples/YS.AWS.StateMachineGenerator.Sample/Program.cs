@@ -5,12 +5,6 @@ using YS.AWS.StateMachine.DataContext;
 using Parallel = YS.AWS.StateMachine.Abstractions.States.Parallel;
 using Task = YS.AWS.StateMachine.Abstractions.States.Task;
 
-//dynamic ctx = DataContext.Root;
-
-//DataContext path = ctx.Hello.World;
-
-//Console.WriteLine(path.JsonPath);
-
 var stateMachine = new StateMachine
 {
     StartAt = "Hello",
@@ -83,7 +77,8 @@ var stateMachine = new StateMachine
                         {
                             Result = AnyValue.Create(new
                             {
-                                Items = new int[] { 1, 2, 3 }
+                                Items = new int[] { 1, 2, 3 },
+                                AnotherItems = States.Array("$.one", "$.two", "$.three")
                             }),
                             Next = "Map"
                         },
@@ -138,9 +133,5 @@ var stateMachine = new StateMachine
         }
     }
 };
-//var choice = stateMachine.States["Choose"] as Choice;
-//foreach (var field in choice.GetSerializedFieldsInfo())
-//{
-//    Console.WriteLine(field.Key);
-//}
+
 Console.WriteLine(stateMachine);

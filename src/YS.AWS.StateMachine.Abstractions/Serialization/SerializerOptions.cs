@@ -16,6 +16,7 @@ internal static class StateMachineSerializerOptions
             };
 
             options.Converters.Add(new JsonPathConverter());
+            options.Converters.Add(new FunctionIntrisincConverter());
             options.Converters.Add(new StateJsonConverter());
             options.Converters.Add(new AnyValueConverter());
 

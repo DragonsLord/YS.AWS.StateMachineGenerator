@@ -8,11 +8,11 @@ namespace YS.AWS.StateMachine.Abstractions.Serialization;
 
 internal static class SerializationExtensions
 {
-    public static bool IsJsonPath(this object obj)
+    public static bool IsIntrisinc(this object obj)
     {
         return
-            (obj is JsonPath) ||
-            (obj is AnyValue any && any.Value is JsonPath);
+            (obj is IIntrisinc) ||
+            (obj is AnyValue any && any.Value is IIntrisinc);
     }
 
     public static void WriteProperties(this Utf8JsonWriter writer, IEnumerable<(string Key, object Value, bool Pathable)> properties, JsonSerializerOptions options)
@@ -31,7 +31,7 @@ internal static class SerializationExtensions
 
             var propName = field.Key;
 
-            if (field.Pathable && field.Value.IsJsonPath())
+            if (field.Pathable && field.Value.IsIntrisinc())
                 propName += ".$";
 
             writer.WritePropertyName(propName);
@@ -50,7 +50,7 @@ internal static class SerializationExtensions
         {
             return objDictionary.Select(kvp => (kvp.Key, kvp.Value, true));
         }
-        if (anyValue.Value.IsJsonPath() || anyValue.Value is IEnumerable)
+        if (anyValue.Value.IsIntrisinc() || anyValue.Value is IEnumerable) // TODO: Arrays can also support intrisincs?
         {
             return Enumerable.Empty<(string Key, object Value, bool Pathable)>();
         }
