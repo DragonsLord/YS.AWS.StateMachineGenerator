@@ -6,7 +6,6 @@ using YS.AWS.StateMachine.Abstractions.Values;
 namespace YS.AWS.StateMachine.Abstractions.States;
 
 //https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-common-fields.html
-[JsonConverter(typeof(StateJsonConverter))]
 public abstract class State
 {
     public abstract StateType Type { get; }
@@ -19,16 +18,18 @@ public abstract class State
 
     internal IEnumerable<(string Key, object Value, bool Pathable)> GetSerializedFieldsInfo()
     {
-        IEnumerable<(string Key, object Value, bool Pathable)> GetBaseFields() {
-            yield return (nameof(Type), Type, false);
-            yield return (nameof(Next), Next, false);
-            yield return (nameof(End), End, false);
-            yield return (nameof(Comment), Comment, false);
-            yield return (nameof(InputPath), InputPath, false);
-            yield return (nameof(OutputPath), OutputPath, false);
+        yield return (nameof(Type), Type, false);
+        yield return (nameof(Comment), Comment, false);
+        yield return (nameof(InputPath), InputPath, false);
+
+        foreach (var field in GetSerializedFields())
+        {
+            yield return field;
         }
 
-        return GetBaseFields().Concat(GetSerializedFields());
+        yield return (nameof(OutputPath), OutputPath, false);
+        yield return (nameof(Next), Next, false);
+        yield return (nameof(End), End, false);
     }
 
     protected virtual IEnumerable<(string Key, object Value, bool Pathable)> GetSerializedFields()
@@ -38,6 +39,6 @@ public abstract class State
 
     public override string ToString()
     {
-        return JsonSerializer.Serialize(this, GetType(), StateMachineSerializerOptions.Default);
+        return JsonSerializer.Serialize(this, StateMachineSerializerOptions.Default);
     }
 }
