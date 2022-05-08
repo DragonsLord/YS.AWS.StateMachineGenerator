@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6460
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YS.AWS.StateMachine.Abstractions", "src\YS.AWS.StateMachine.Abstractions\YS.AWS.StateMachine.Abstractions.csproj", "{E9AB5A0C-8FDA-48B8-AD01-2C911217E6A4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{56DD794E-AB49-4289-AA2C-F3D196A09321}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YS.AWS.StateMachine.Abstractions.Tests", "tests\YS.AWS.StateMachine.Abstractions.Tests\YS.AWS.StateMachine.Abstractions.Tests.csproj", "{B3E9FC86-0DED-49FC-B10A-C4DDF57C83F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,12 +32,17 @@ Global
 		{E9AB5A0C-8FDA-48B8-AD01-2C911217E6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9AB5A0C-8FDA-48B8-AD01-2C911217E6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9AB5A0C-8FDA-48B8-AD01-2C911217E6A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E9FC86-0DED-49FC-B10A-C4DDF57C83F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E9FC86-0DED-49FC-B10A-C4DDF57C83F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E9FC86-0DED-49FC-B10A-C4DDF57C83F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E9FC86-0DED-49FC-B10A-C4DDF57C83F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1B01A7BE-34FA-4442-A185-D032CCCC9BBE} = {6460F7B3-70D6-44FE-8E88-FC0C56967F51}
+		{B3E9FC86-0DED-49FC-B10A-C4DDF57C83F0} = {56DD794E-AB49-4289-AA2C-F3D196A09321}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DEF05CF-F3E4-4C1B-B48F-9B449EB0F5E8}
